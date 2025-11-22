@@ -1,0 +1,57 @@
+Query.No,Query text,SQL Query,Results,,,,
+1, Show Employee name and salary,"select Employee_name,salary from Employees;",Employee_name,salary,,,
+,,,Rahul Sharma,45000,,,
+,,,Priya Verma,40000,,,
+,,,Amit Singh,35000,,,
+,,,Neha Gupta,32000,,,
+,,,Rohit Mehta,55000,,,
+,,,Sneha Reddy,38000,,,
+,,,Total company cost,245000,,,
+,,,,,,,
+2,"Employees earning more than 40,000","Select * from employees
+where salary>40000;",Employee_ID,Employee_name,Department_ID,Salary,Hire_date
+,,,101,Rahul Sharma,3,45000,01-06-2022
+,,,105,Rohit Mehta,3,55000,20-08-2019
+,,,,,,,
+,,,,,,,
+3,Sort employees by salary (High ? Low),"select * from employees
+order by salary desc;",Employee_ID,Employee_name,Department_ID,Salary,Hire_date
+,,,105,Rohit Mehta,3,55000,20-08-2019
+,,,101,Rahul Sharma,3,45000,01-06-2022
+,,,102,Priya Verma,2,40000,15-03-2021
+,,,106,Sneha Reddy,2,38000,01-11-2022
+,,,103,Amit Singh,4,35000,10-01-2020
+,,,104,Neha Gupta,1,32000,01-02-2023
+,,,,,,,
+4,Show employee name + department name,"SELECT 
+    e.Employee_Name,
+    d.Department_Name
+FROM Employees e
+JOIN Departments d
+    ON e.Department_ID = d.Department_ID;",Employee_Name,Department_Name,,,
+,,,Rahul Sharma,IT,,,
+,,,Priya Verma,Finance,,,
+,,,Amit Singh,Sales,,,
+,,,Neha Gupta,HR,,,
+,,,Rohit Mehta,IT,,,
+,,,Sneha Reddy,Finance,,,
+,,,,,,,
+5,No.of Employees in each department,"SELECT 
+    d.Department_Name,
+    COUNT(e.Employee_ID) AS EmployeeCount
+FROM Departments d
+LEFT JOIN Employees e
+    ON d.Department_ID = e.Department_ID
+GROUP BY d.Department_Name;",Department_Name,EmployeeCount,,,
+,,,HR,1,,,
+,,,Finance,2,,,
+,,,IT,2,,,
+,,,Sales,1,,,
+,,,Total employes,6,,,
+,,,,,,,
+6,Top 3 employees with Highest salary,"SELECT * FROM Employees
+ORDER BY Salary DESC
+LIMIT 3;",Employee_ID,Employee_name,Department_ID,Salary,Hire_date
+,,,105,Rohit Mehta,3,55000,20-08-2019
+,,,101,Rahul Sharma,3,45000,01-06-2022
+,,,102,Priya Verma,2,40000,15-03-2021
